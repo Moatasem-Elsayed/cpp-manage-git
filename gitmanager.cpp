@@ -106,7 +106,7 @@ bool GitManager::commit()
 }
 bool GitManager::push()
 {
-    char answer;
+    std::string answer;
     bool ret = false;
     std::string reponame;
     std::cout << "please write repo name " << std::endl;
@@ -120,8 +120,9 @@ bool GitManager::push()
     // git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
 
     std::cout << "would you prefer to use defult (token-name) Y/N ?" << std::endl;
-    std::cin >> answer;
-    switch (answer)
+    std::getline(std::cin, answer);
+
+    switch (answer[0])
     {
     case 'Y':
     case 'y':
