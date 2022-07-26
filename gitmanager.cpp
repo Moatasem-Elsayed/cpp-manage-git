@@ -120,7 +120,14 @@ bool GitManager::push()
     {
         reponame = REPO_DEFUALT;
     }
-    std::string cmd(" git push https://" + ACCESS_TOKEN + "@github.com/" + USERNAME + "/" + reponame + ".git");
+    std::string github_username;
+    std::cout << "please write github username " << std::endl;
+    std::getline(std::cin, github_username);
+    if (reponame.size() == 0)
+    {
+        github_username = USERNAME;
+    }
+    std::string cmd(" git push https://" + ACCESS_TOKEN + "@github.com/" + github_username + "/" + reponame + ".git");
 
     // git push https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
 
